@@ -1,1 +1,66 @@
-# Master Page Layout (Navigation & Footer)
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}HemoLink Pro{% endblock %}</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Header and Navigation -->
+    <header>
+        <nav>
+
+            <a href="{{ url_for('index') }}">Home</a>
+
+            {% if session.get('user_id') %}
+
+                <a href="{{ url_for('dashboard') }}">Dashboard</a>
+
+                <a href="{{ url_for('blood_request') }}">Blood Request</a>
+
+                <a href="{{ url_for('logout') }}">Logout</a>
+
+            {% else %}
+
+                <a href="{{ url_for('login') }}">Login</a>
+
+                <a href="{{ url_for('register') }}">Register</a>
+
+            {% endif %}
+
+        </nav>
+    </header>
+
+    <!-- Display Flask Messages -->
+    <main>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <p class="flash-message {{ category }}" role="alert">
+                        {{ message }}
+                    </p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 HemoLink Pro. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

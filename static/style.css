@@ -1,1 +1,230 @@
-# Global Custom Responsive CSS Stylesheet
+
+/* ==============================
+   HemoLink Pro - Main Stylesheet
+   ============================== */
+
+/* General Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f7fa;
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* Navigation */
+
+header {
+    background-color: #b71c1c;
+    padding: 18px 30px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main Containers */
+
+.login-container,
+.register-container,
+.home-container,
+.dashboard-container,
+.request-container {
+    width: 90%;
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Headings */
+
+h1 {
+    color: #b71c1c;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #444444;
+}
+
+h3 {
+    color: #b71c1c;
+    margin: 20px 0 10px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* Forms */
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: white;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #b71c1c;
+    border-color: #b71c1c;
+}
+
+/* Fieldset */
+
+fieldset {
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    padding: 18px;
+    margin: 20px 0;
+}
+
+legend {
+    font-weight: bold;
+    color: #b71c1c;
+    padding: 0 8px;
+}
+
+/* Buttons */
+
+button,
+.home-container a,
+.dashboard-container a {
+    display: inline-block;
+    background-color: #b71c1c;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 8px 5px 8px 0;
+}
+
+button:hover,
+.home-container a:hover,
+.dashboard-container a:hover {
+    background-color: #8e0000;
+}
+
+/* General Links */
+
+a {
+    color: #b71c1c;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Flash Messages */
+
+.flash-message {
+    padding: 12px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.flash-message.success {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+    border: 1px solid #a5d6a7;
+}
+
+.flash-message.error {
+    background-color: #ffebee;
+    color: #b71c1c;
+    border: 1px solid #ef9a9a;
+}
+
+/* Dashboard */
+
+.dashboard-options {
+    margin-top: 25px;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    background-color: #eeeeee;
+    padding: 18px;
+    margin-top: 40px;
+    color: #555555;
+}
+
+/* Responsive Design */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 15px;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    .login-container,
+    .register-container,
+    .home-container,
+    .dashboard-container,
+    .request-container {
+        width: 94%;
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    button {
+        width: 100%;
+    }
+
+}

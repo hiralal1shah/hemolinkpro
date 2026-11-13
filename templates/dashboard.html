@@ -1,1 +1,57 @@
-# Admin & Donor Management Dashboard
+
+{% extends "base.html" %}
+
+{% block title %}Dashboard | HemoLink Pro{% endblock %}
+
+{% block content %}
+
+<section class="dashboard-container">
+
+    <h1>Welcome to Your Dashboard</h1>
+
+    <h2>Hello, {{ session.get('full_name') }}!</h2>
+
+    <p>
+        Welcome to HemoLink Pro.
+        Manage your blood donation activities from here.
+    </p>
+
+    <div class="dashboard-options">
+
+        {% if session.get('role') == 'donor' %}
+
+            <h3>Donor Dashboard</h3>
+
+            <p>
+                Thank you for being a blood donor.
+                Your contribution can help save lives.
+            </p>
+
+            <p>
+                Please keep your availability information updated.
+            </p>
+
+        {% elif session.get('role') == 'seeker' %}
+
+            <h3>Blood Seeker Dashboard</h3>
+
+            <p>
+                You can submit a blood request
+                and connect with potential donors.
+            </p>
+
+        {% endif %}
+
+        <a href="{{ url_for('blood_request') }}">
+            Request Blood
+        </a>
+
+        <a href="{{ url_for('logout') }}">
+            Logout
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

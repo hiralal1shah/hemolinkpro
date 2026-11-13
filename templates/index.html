@@ -1,1 +1,55 @@
-# Landing / Home Page
+
+{% extends "base.html" %}
+
+{% block title %}Home | HemoLink Pro{% endblock %}
+
+{% block content %}
+
+<section class="home-container">
+
+    <h1>Welcome to HemoLink Pro</h1>
+
+    <h2>Donate Blood. Save Lives.</h2>
+
+    <p>
+        You don't need a cape to save a life —
+        just a willingness to donate blood.
+    </p>
+
+    <p>
+        One hour of your time can give someone
+        another chance at life.
+    </p>
+
+    <p>
+        Connect blood donors with people who need blood.
+        Together, we can make a difference.
+    </p>
+
+    {% if session.get('user_id') %}
+
+        <p>Welcome, {{ session.get('full_name') }}!</p>
+
+        <a href="{{ url_for('dashboard') }}">
+            Go to Dashboard
+        </a>
+
+        <a href="{{ url_for('blood_request') }}">
+            Request Blood
+        </a>
+
+    {% else %}
+
+        <a href="{{ url_for('register') }}">
+            Register Now
+        </a>
+
+        <a href="{{ url_for('login') }}">
+            Login
+        </a>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}

@@ -1,1 +1,89 @@
-# Emergency Blood Request Page
+
+{% extends "base.html" %}
+
+{% block title %}Blood Request | HemoLink Pro{% endblock %}
+
+{% block content %}
+
+<section class="request-container">
+
+    <h1>Request Blood</h1>
+
+    <p>
+        Submit your blood requirement details.
+        We will help connect you with potential donors.
+    </p>
+
+    <form method="POST" action="{{ url_for('blood_request') }}">
+
+        <div class="form-group">
+            <label for="blood_group">Required Blood Group</label>
+
+            <select id="blood_group" name="blood_group" required>
+                <option value="">Select blood group</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="units_requested">Units Required</label>
+
+            <input
+                type="number"
+                id="units_requested"
+                name="units_requested"
+                min="1"
+                required
+                placeholder="Enter number of units">
+        </div>
+
+        <div class="form-group">
+            <label for="hospital_name">Hospital Name</label>
+
+            <input
+                type="text"
+                id="hospital_name"
+                name="hospital_name"
+                required
+                placeholder="Enter hospital name">
+        </div>
+
+        <div class="form-group">
+            <label for="city">City</label>
+
+            <input
+                type="text"
+                id="city"
+                name="city"
+                required
+                placeholder="Enter city">
+        </div>
+
+        <div class="form-group">
+            <label for="urgency">Urgency</label>
+
+            <select id="urgency" name="urgency" required>
+                <option value="Normal">Normal</option>
+                <option value="Urgent">Urgent</option>
+                <option value="Critical">Critical</option>
+            </select>
+        </div>
+
+        <button type="submit">Submit Blood Request</button>
+
+    </form>
+
+    <p>
+        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </p>
+
+</section>
+
+{% endblock %}
